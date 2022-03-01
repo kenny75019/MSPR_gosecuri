@@ -1,0 +1,14 @@
+{% extends "./base.html" %}
+
+{% block title %}employe.nom{% endblock %}
+
+{% block content %}
+    <h1>{{employe.nom + " " + employe.prenom}}</h1>
+
+    <h2>Les Matériels empruntés : </h2>
+    <div class="materiels">
+        {% for materiel in employe.getMaterielsEmpruntes() %}
+            <h3>{{materiel.label}}</h3>
+        {% endfor %}
+    </div>
+{% endblock %}
