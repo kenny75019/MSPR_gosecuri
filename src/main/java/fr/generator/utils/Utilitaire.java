@@ -29,7 +29,7 @@ public class Utilitaire {
         ).render();
 
         FileWriter agents = new FileWriter("./web/agents.html");
-        agents.write(Formatter.toHtml("./templates/agents.html", "Agents", Content));
+        agents.write(Formatter.toHtml("/var/www/html/agents.html", "Agents", Content));
         agents.close();
     }
 
@@ -46,7 +46,7 @@ public class Utilitaire {
                     )
             ).render();
 
-            file.write(Formatter.toHtml("./templates/details.html", employe.getNom(), content));
+            file.write(Formatter.toHtml("/var/www/html/details.html", employe.getNom(), content));
             file.close();
         }
     }
@@ -55,7 +55,7 @@ public class Utilitaire {
     // https://pebbletemplates.io/
     public static void CreateAgentsListPageByTemplate(List<Employe> lesEmployes) throws IOException{
         PebbleEngine engine = new PebbleEngine.Builder().build();
-        PebbleTemplate compiledTemplate = engine.getTemplate("templates/agents.html");
+        PebbleTemplate compiledTemplate = engine.getTemplate("/var/www/html/agents.html");
 
         Map<String, Object> context = new HashMap<>();
         context.put("employes", lesEmployes);
@@ -72,7 +72,7 @@ public class Utilitaire {
 
     public static void CreateEachAgentsPageByTemplate(List<Employe> lesEmployes) throws IOException{
         PebbleEngine engine = new PebbleEngine.Builder().build();
-        PebbleTemplate compiledTemplate = engine.getTemplate("templates/details_agent.html");
+        PebbleTemplate compiledTemplate = engine.getTemplate("/var/www/html/details_agent.html");
         for(Employe employe : lesEmployes){
             FileWriter file = new FileWriter("./web/" + employe.getNomHtml());
             Map<String, Object> context = new HashMap<>();
