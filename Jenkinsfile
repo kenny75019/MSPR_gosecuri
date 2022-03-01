@@ -12,7 +12,7 @@ pipeline {
             steps {
                 // Get some code from a GitHub repository
                 // Cloner le repo où sont stockés les data
-                git 'https://github.com/Alexon1999/MSPR_GO-SECURI'
+                git 'https://github.com/kenny75019/MSPR_gosecuri'
                 
                 //sh 'cd .. && rm -rf db && mkdir db'
                 deleteAndCreateDirectory("../db")
@@ -33,7 +33,7 @@ pipeline {
             steps {
                 // Get some code from a GitHub repository
                 // Cloner l'application java
-                git 'https://github.com/Alexon1999/MSPR_JAVA-APP'
+                git 'https://github.com/kenny75019/MSPR_gosecuri'
                 
                 // Réinitialiser
                 deleteAndCreateDirectory("db")
